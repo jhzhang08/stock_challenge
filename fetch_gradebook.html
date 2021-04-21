@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Gradebook Data Challenge</title>
+</head>
+<body>
+
+    <h1>Gradebook Data Challenge</h1>
+
+    <p>Check out the JavaScript console for some data crunching action...</p>
+
+    <div id="gradebook-app">
+    </div>
+
+    <script type="text/javascript">
+
+    //var gradebook = []
+    var requestUrl = "https://raw.githubusercontent.com/prof-rossetti/internet-technologies/main/exercises/fetch-the-data/gradebook.json"
+    console.log("REQUEST URL", requestUrl)
+    fetch(requestUrl)
+        .then(response => response.json())
+        .then(gradebook => {
+            console.log("GRADEBOOK", gradebook)
+            console.log("DOWNLOAD DATE:", gradebook["downloadDate"])
+            console.log("NUMBER OF STUDENTS:", gradebook["students"].length)
+            // etc...
+        }).catch(function (err) {
+            console.error("OOPS", err)
+            alert("OOPS, please check your inputs and try again!")
+        })
+    console.log("THIS WILL BE LOGGED BEFORE THE DATA IS FETCHED")
+
+</script>
+
+</body>
+</html>
